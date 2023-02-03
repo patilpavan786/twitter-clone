@@ -16,14 +16,17 @@ import { Avatar } from "@mui/material";
 import CustomButton2 from "../../../Atom/Button/CustomButton2";
 import DialogBox from "../../Dialog/DialogBox";
 import { useNavigate } from "react-router-dom";
+import {forLocalStorageIndex} from "../../../Recoil/Atom1/Atom"
+import { useRecoilValue } from "recoil";
 
 
 function LeftSec() {
   const nevigate = useNavigate();
-  let Data =  JSON.parse(localStorage.getItem("user"));
-  
- console.log(Data)
+  let Data = JSON.parse(localStorage.getItem("user"));
+  const getLocalStorageIndex=useRecoilValue(forLocalStorageIndex)
+ // console.log(Data)
   //console.log(Data[2].Name)
+  console.log( getLocalStorageIndex)
   
   const menu = [
     { id: 1, icon: <FaHouseUser />, Name: <p onClick={()=> nevigate("/") }>Home</p> },
@@ -49,8 +52,8 @@ function LeftSec() {
   const handleClickClose = () => {
     setOpen(false);
   };
-  var paramsValue=Data[localStorage.length-1].Name
-  console.log(paramsValue)
+  var paramsValue=Data[getLocalStorageIndex].Name
+  //console.log(paramsValue)
   return (
     <>
       <div className={style.container}>
@@ -98,8 +101,8 @@ function LeftSec() {
                   src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                 />
               }
-              text={Data[localStorage.length-1].Name}
-              text2={Data[localStorage.length-1].Email}
+              text={Data[getLocalStorageIndex].Name}
+              text2={Data[getLocalStorageIndex].Email}
               button={handleOpen}
               customCss={style.button2}
             />

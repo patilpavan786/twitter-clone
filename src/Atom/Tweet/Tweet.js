@@ -12,7 +12,7 @@ import { isTweetPost ,Personaltweet} from "../../Recoil/Atom1/Atom";
 import { Avatar } from "antd";
 
 function Tweet() {
-  let Data = JSON.parse(localStorage.getItem("user"));
+  let Data = JSON.parse(localStorage.getItem("user0"));
   const [personal, setPersonal ] = useRecoilState(Personaltweet);
   const [isOpen, setIsOpen] = useState(false);
   const [image, setImage] = useState("");

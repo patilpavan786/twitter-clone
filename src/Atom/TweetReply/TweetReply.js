@@ -21,7 +21,7 @@ function TweetReply() {
   const[index,setIndex]=useRecoilState(forPassingId)
   const [forTrue, setForTrue] = useState(0);
   const [storeArray, setStoreArray] = useState("");
-  let Data = JSON.parse(localStorage.getItem("user"));
+  let Data = JSON.parse(localStorage.getItem("user0"));
   const inputRef = useRef(null);
   const Icons = [
     { id: 0, icon: <HiOutlineGif /> },

@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
 import style from "./Register.module.css";
 import CustomButton from "../../Atom/Button/CustomButton";
-import uuid from 'react-uuid';
 import {
   isValidEmail,
   isValidMobile,
   isValidString,
   isValidPassword,
+ 
+
 } from "../../helper";
 import styleDob from "../../Components/Dob/Dob.module.css";
 import Input from "../../Atom/Input/Input";
 import { Link } from "react-router-dom";
 import { Month, Date, Dayy } from "../../Components/Dob/Dob";
 import { useSetRecoilState } from "recoil";
-import { isLoginAtom } from "../../Recoil/Atom1/Atom";
+import { isLoginAtom, forLocalStorageIndex } from "../../Recoil/Atom1/Atom";
 import { useNavigate } from "react-router-dom";
+import uuid from 'react-uuid';
 
 function Register() {
   const [form, Setform] = useState(false);
@@ -37,7 +39,7 @@ function Register() {
   const [passwordError, setPasswordError] = useState("");
   const setLoginStatus = useSetRecoilState(isLoginAtom);
   const navigate = useNavigate();
-
+  const setLocalStorageIndex= useSetRecoilState(forLocalStorageIndex)
   function Form() {
     Setform(true);
   }
@@ -69,7 +71,7 @@ function Register() {
   function submitFunction() {
     console.log(date);
     const Data = {
-     id: uuid() ,
+      id: uuid(2) ,
       Name: name,
       Phone: phone,
       Email: email,
@@ -160,13 +162,22 @@ function Register() {
       {
          localStorage.setItem('user', JSON.stringify(data ));
       }
+
      else{
       let oldData = JSON.parse(localStorage.getItem("user"))
+      //console.log(oldData)
+     // localStorage.setItem('user', JSON.stringify([ ...oldData, ...data ]));
+      
       localStorage.setItem("user" , JSON.stringify([...oldData,...data]))
+     // localStorage.setItem('user', JSON.stringify(data ));
      }
+      // setIncl(incl + 1);
       alert("USER Sucessfully Registered");
       setLoginStatus(true);
+      // window.location.assign("/");
       navigate("/");
+      let Data1 = JSON.parse(localStorage.getItem("user"))
+      setLocalStorageIndex(Data1.length-1)
     }
   }
   return (
