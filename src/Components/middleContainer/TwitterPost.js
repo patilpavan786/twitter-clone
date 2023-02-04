@@ -35,6 +35,7 @@ export default function TwitterPost() {
   const [icon, setIcon] = useState("rgb(77, 75, 75)");
   const [isOpen, SetisOpen] = useState(false);
   const[count,setCount]=useState(0)
+  
   // const setRequestedProfile = useRecoilState(requestedProfileAtom)
 
   function handleLike(takeLikes) {

@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { userTweet, forPassingId } from "../../../Recoil/Atom1/Atom";
+import { userTweet, forPassingId,forLocalStorageIndex } from "../../../Recoil/Atom1/Atom";
 import { Avatar } from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import SyncIcon from "@mui/icons-material/Sync";
@@ -15,6 +15,7 @@ import { useState } from "react";
 // import CustomButton from '../../../Atom/Button/CustomButton';
 function Tweetpost() {
   const [post, setPost] = useState(tweetPosts);
+  const getLocalStorageIndex=useRecoilValue(forLocalStorageIndex)
   let Data = JSON.parse(localStorage.getItem("user"));
 
   const tweetPostData = useRecoilValue(userTweet);
@@ -85,7 +86,7 @@ function Tweetpost() {
                   <>
                     <span className={style2.text}>
                       <h3>
-                        {Data[Data.length-1].Name}
+                        {Data[getLocalStorageIndex].Name}
                         <VerifiedIcon style={{ color: "#1D9BF0", fontSize: "1.5rem" }} />
                       </h3>
                     </span>
