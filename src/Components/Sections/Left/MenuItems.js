@@ -52,7 +52,7 @@ function LeftSec() {
   const handleClickClose = () => {
     setOpen(false);
   };
-  var paramsValue=Data[getLocalStorageIndex].Name
+  var paramsValue=Data[getLocalStorageIndex]?.Name
   //console.log(paramsValue)
   return (
     <>

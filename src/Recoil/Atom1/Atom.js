@@ -56,7 +56,7 @@ export const forPassingId = atom({
 });
 
 export const forLocalStorageIndex = atom({
-  key: "Passid",
+  key: "forLocalStorageIndex",
   default:0,
 });
 
