@@ -18,7 +18,7 @@ import {
   requestedProfileAtom,
   forPassingId
 } from "../../Recoil/Atom1/Atom";
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { tweetPosts } from "../../ConstData/ConstData";
 import TweetReply from "../../Atom/TweetReply/TweetReply";
 
@@ -31,9 +31,9 @@ export default function TwitterPost() {
   const[indexForD,setIndexForD]=useState()
   const [newProfile, setNewProfile] = useRecoilState(userProfile);
  // const [likesCount, setLikesCount] = useState(1000);
-  const [requestedProfile, setRequestedProfile] = useState("");
-  const [icon, setIcon] = useState("rgb(77, 75, 75)");
-  const [isOpen, SetisOpen] = useState(false);
+  // const [requestedProfile, setRequestedProfile] = useState("");
+  // const [icon, setIcon] = useState("rgb(77, 75, 75)");
+  // const [isOpen, SetisOpen] = useState(false);
   const[count,setCount]=useState(0)
   
   // const setRequestedProfile = useRecoilState(requestedProfileAtom)
