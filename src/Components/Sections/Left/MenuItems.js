@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { FaTwitter } from "react-icons/fa";
-import { FaHouseUser, FaHashtag, FaNotification } from "react-icons/fa";
+import { FaHouseUser, FaHashtag} from "react-icons/fa";
 // import { GrNotification } from "react-icons/gr";
 import { BsBookmark, BsPerson } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";

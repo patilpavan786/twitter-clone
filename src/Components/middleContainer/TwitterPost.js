@@ -30,13 +30,10 @@ export default function TwitterPost() {
   const setId=useSetRecoilState(forPassingId);
   const[indexForD,setIndexForD]=useState()
   const [newProfile, setNewProfile] = useRecoilState(userProfile);
- // const [likesCount, setLikesCount] = useState(1000);
-  // const [requestedProfile, setRequestedProfile] = useState("");
-  // const [icon, setIcon] = useState("rgb(77, 75, 75)");
-  // const [isOpen, SetisOpen] = useState(false);
+
   const[count,setCount]=useState(0)
   
-  // const setRequestedProfile = useRecoilState(requestedProfileAtom)
+
 
   function handleLike(takeLikes) {
     
