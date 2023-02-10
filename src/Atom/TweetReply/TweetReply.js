@@ -6,22 +6,16 @@ import { HiOutlineGif } from "react-icons/hi2";
 import { CgSmileMouthOpen } from "react-icons/cg";
 import { BiUserCircle } from "react-icons/bi";
 import CustomButton from "../Button/CustomButton";
-import ConstData from "../../ConstData/ConstData";
 import { tweetPosts } from "../../ConstData/ConstData";
 import { useRecoilState } from "recoil";
-import { isTweetPost, Personaltweet,forPassingId } from "../../Recoil/Atom1/Atom";
+import { forPassingId } from "../../Recoil/Atom1/Atom";
 // import { Avatar } from "antd";
 
 function TweetReply() {
   const [isOpen, setIsOpen] = useState(false);
   const [image, setImage] = useState("");
-  const [post,setPost]=useState(tweetPosts)
-  // const [profileTweet, setProfileTweet] = useRecoilState(Personaltweet)
-  // const [loginStatus, setLoginStatus] = useRecoilState(isTweetPost);
   const[index,setIndex]=useRecoilState(forPassingId)
-  // const [forTrue, setForTrue] = useState(0);
   const [storeArray, setStoreArray] = useState("");
-  // let Data = JSON.parse(localStorage.getItem("user0"));
   const inputRef = useRef(null);
   const Icons = [
     { id: 0, icon: <HiOutlineGif /> },
@@ -54,9 +48,7 @@ function TweetReply() {
     let newObj1={
       tweetComment:storeArray
     }
-    //post[index].tweetComment=([...post[index].tweetComment,newObj1])
-    // console.log(storeArray)
-    //localStorage.setItem("const tweetPosts[2].tweetComment" , "ghyy")
+  
    let k=JSON.parse(localStorage.getItem("constTweetPosts"))
    console.log(k)
    k[index].tweetComment=([...k[index].tweetComment,newObj1])
