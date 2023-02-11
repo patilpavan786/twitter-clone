@@ -6,16 +6,22 @@ import { HiOutlineGif } from "react-icons/hi2";
 import { CgSmileMouthOpen } from "react-icons/cg";
 import { BiUserCircle } from "react-icons/bi";
 import CustomButton from "../Button/CustomButton";
+import ConstData from "../../ConstData/ConstData";
 import { tweetPosts } from "../../ConstData/ConstData";
 import { useRecoilState } from "recoil";
-import { forPassingId } from "../../Recoil/Atom1/Atom";
+import { isTweetPost, Personaltweet,forPassingId } from "../../Recoil/Atom1/Atom";
 // import { Avatar } from "antd";
 
-function TweetReply() {
+function TweetReply(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [image, setImage] = useState("");
+  const [post,setPost]=useState(tweetPosts)
+  // const [profileTweet, setProfileTweet] = useRecoilState(Personaltweet)
+  // const [loginStatus, setLoginStatus] = useRecoilState(isTweetPost);
   const[index,setIndex]=useRecoilState(forPassingId)
+  // const [forTrue, setForTrue] = useState(0);
   const [storeArray, setStoreArray] = useState("");
+  // let Data = JSON.parse(localStorage.getItem("user0"));
   const inputRef = useRef(null);
   const Icons = [
     { id: 0, icon: <HiOutlineGif /> },
@@ -48,26 +54,22 @@ function TweetReply() {
     let newObj1={
       tweetComment:storeArray
     }
-  
+ 
    let k=JSON.parse(localStorage.getItem("constTweetPosts"))
    console.log(k)
    k[index].tweetComment=([...k[index].tweetComment,newObj1])
    localStorage.setItem("constTweetPosts", JSON.stringify(k))
 
   }
-  function handleClose() {
-    setIsOpen(false);
-  }
+
 
   return (
     <>
       <div className={style.parentContainer}>
         <div className={style.main}>
-          <CustomButton
-            buttonText="X"
-            customCss={style.btnClose}
-            btnNext={handleClose}
-          />
+          <button className={style.btnClose} onClick={props.onClick}>x</button>
+          
+         
         
           <div className={style.wrapper}>
             <textarea
@@ -86,6 +88,7 @@ function TweetReply() {
                 <img src={image} height="100%" width="100%" alt="foo" />
               </div>
             )}
+             <div className={style.iconscontainer1}>
             <div className={style.iconscontainer}>
               {Icons.map((menu) => {
                 return (
@@ -99,15 +102,16 @@ function TweetReply() {
                   </div>
                 );
               })}
-              <CustomButton
-                buttonText="Reply000"
+              
+            </div>
+            <CustomButton
+                buttonText="Reply "
                 btnNext={handleNewTweet}
                 customCss={style.button}
               />
-            </div>
           </div>
         </div>
-     
+        </div>  
         <input
           type="file"
           hidden
