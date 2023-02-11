@@ -23,6 +23,9 @@
     .container{
         display: none;
     }
+    .middleContainer{
+        width: 100%;
+    }
     .rightContainer{
         display: none;
     }

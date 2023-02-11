@@ -128,7 +128,7 @@ function handleClickOpen (index) {
                 <span className={style.text}>
                   <h3>
                     {data.name}
-                    <VerifiedIcon style={{ color: "blue" }} />
+                    <VerifiedIcon style={{  color: "#1D9BF0" , width:"1rem"  }} />
                   </h3>
                 </span>
                 <h4>{data.handlerName}</h4>

@@ -69,10 +69,10 @@
   }
 
   @media only screen and (max-width: 768px){
-    .Avatarsection{
+    /* .Avatarsection{
       display: flex;
       gap: 2rem;
-  }
+  } */
    
     .btn{
 display: none;
