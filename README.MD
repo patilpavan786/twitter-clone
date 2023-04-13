@@ -1,4 +1,4 @@
-The developer has created a UI that mimics the core features of the popular social media platform Twitter. This Twitter clone UI allows users to create new tweets, comment on existing tweets, and like tweets. Users can use the platform to share their thoughts, ideas, and opinions on various topics with other users.
+The have created a UI that mimics the core features of the popular social media platform Twitter. This Twitter clone UI allows users to create new tweets, comment on existing tweets, and like tweets. Users can use the platform to share their thoughts, ideas, and opinions on various topics with other users.
 
 One of the key features of this Twitter clone UI is the ability to create new tweets. Users can easily compose new tweets and share them with their followers, who can then like or retweet the tweets to share them with their own followers. Additionally, users can comment on existing tweets, providing their own thoughts and opinions on the topic.
 
