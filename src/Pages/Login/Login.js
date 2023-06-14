@@ -5,24 +5,28 @@ import { FaTwitter } from "react-icons/fa";
 import Input from "../../Atom/Input/Input";
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { isLoginAtom,forLocalStorageIndex } from "../../Recoil/Atom1/Atom";
+import { isLoginAtom, forLocalStorageIndex } from "../../Recoil/Atom1/Atom";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { isValidLogin } from "../../helper";
 function Login() {
-  const [nextbtn, setNextBtn] = useState(false);  
+  const [nextbtn, setNextBtn] = useState(false);
   const nevigate = useNavigate();
   const [loginv, setLoginV] = useState("");
   const [passWordValue, setPasswordValue] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [localstorageKey, setLocalstorageKey] = useState();
   const [loginError, setLoginError] = useState("");
-  const setLocalstorageIndex=useSetRecoilState(forLocalStorageIndex)
+  const setLocalstorageIndex = useSetRecoilState(forLocalStorageIndex);
   const setLoginStatus = useSetRecoilState(isLoginAtom);
   function loginValue(inputLogin) {
     setLoginV(inputLogin);
   }
   function passWordChangeValue(inputPassword) {
     setPasswordValue(inputPassword);
+  }
+  function togglePasswordPreview() {
+    setShowPassword(!showPassword);
   }
   const buttonNext = () => {
     let flag = 1;
@@ -32,56 +36,50 @@ function Login() {
       flag = 1;
     } else {
       flag = 0;
-    } 
+    }
 
     let flagForLs = 0;
-   
-      if(localStorage.length==0)
-      {
-        alert("LocalStorage is empty")
-      }
-      else
-      {
+
+    if (localStorage.length == 0) {
+      alert("LocalStorage is empty");
+    } else {
       let k = JSON.parse(localStorage.getItem("user"));
-      k.map((element,i)=>{
-        console.log(element.Email)
-        if (element.Email === loginv || element.Name === loginv || element.Phone == loginv) {
+      k.map((element, i) => {
+        console.log(element.Email);
+        if (
+          element.Email === loginv ||
+          element.Name === loginv ||
+          element.Phone == loginv
+        ) {
           flagForLs = 1;
-        
-          console.log(element.Email)
+
+          console.log(element.Email);
           setLocalstorageKey(i);
-          setLocalstorageIndex(i)
+          setLocalstorageIndex(i);
         }
+      });
+    }
 
-
-      })
-      
-      }
-    
     if (flagForLs == 1 && flag == 0) {
       setNextBtn(true);
     } else if (flagForLs == 0) {
       setNextBtn(false);
       setLoginError("User Not Found");
     }
-    
   };
   const handleLogIn = () => {
- 
-
     let flagForLs = 0;
     let k = JSON.parse(localStorage.getItem("user"));
-   // console.log(k.password);
-   
+    // console.log(k.password);
 
     if (k[localstorageKey].password === passWordValue) {
       flagForLs = 1;
     }
-  
+
     if (flagForLs == 1) {
       setLoginStatus(true);
       alert("succesfully login");
-      
+
       nevigate("/Home");
     } else {
       alert("false");
@@ -97,14 +95,24 @@ function Login() {
             <>
               <div className={style.containerpass}>
                 <h1>Enter your Password</h1>
+               
                 <div>
-                  <Input
-                    className={style.input2}
-                    placeholder="passsword"
-                    handleOnchange={passWordChangeValue}
-                    type={"password"}
-                  />
-                </div>
+                <Input
+                  className={style.input2}
+                  placeholder="Password"
+                  handleOnchange={passWordChangeValue}
+                  type={showPassword ? "text" : "password"}
+                />
+                <div className={style.passwordPreview} onClick={togglePasswordPreview}>
+                {showPassword ? (
+                  <i className="fa fa-eye-slash"></i>
+                ) : (
+                  <i className="fa fa-eye"></i>
+                )}
+              </div>
+               
+               
+              </div>
 
                 <div className={style.password}>
                   <CustomButton
@@ -128,18 +136,33 @@ function Login() {
               ></CustomButton>
               <br />
               <CustomButton
-           
                 buttonText="Sign in with Apple"
                 icon={<i className="fa fa-brands fa-apple"></i>}
                 customCss={style.btn2}
               ></CustomButton>
-            
-            <div className={style.ortext}>
-             <hr style={{width:"8.4rem" , height:"0.01rem", marginTop:"0.2rem",backgroundColor:"#808080",border:"none"  }}/>
-             or
-             <hr style={{width:"8.4rem" , height:"0.01rem", marginTop:"0.2rem",backgroundColor:"#808080",border:"none"  }}/>
-            </div>
-              
+
+              <div className={style.ortext}>
+                <hr
+                  style={{
+                    width: "8.4rem",
+                    height: "0.01rem",
+                    marginTop: "0.2rem",
+                    backgroundColor: "#808080",
+                    border: "none",
+                  }}
+                />
+                or
+                <hr
+                  style={{
+                    width: "8.4rem",
+                    height: "0.01rem",
+                    marginTop: "0.2rem",
+                    backgroundColor: "#808080",
+                    border: "none",
+                  }}
+                />
+              </div>
+
               <div>
                 <Input
                   className={style.input}

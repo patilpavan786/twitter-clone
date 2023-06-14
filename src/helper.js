@@ -8,11 +8,17 @@ export function isValidString(value) {
 
   return true;
 }
+// export function isValidMobile(value) {
+//   return /^[6-9]\d{9}$/.test(value);
+// }
 export function isValidMobile(value) {
-  return /^[6-9]\d{9}$/.test(value);
+  return /^(\+?91|0)?[6-9]\d{9}$/.test(value);
 }
+
 export function isValidEmail(value) {
-  return /^[A-Z0-9]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value);
+  // return /^[A-Z0-9]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value);
+  return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value);
+  
 }
 export function isValidPassword(value) {
   if (

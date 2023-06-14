@@ -78,6 +78,7 @@
     color: white;
     border: 1px gray solid;
     margin: 0.75rem 0;
+    padding-left: 1rem;
 }
 .input::placeholder{
     padding-left: 0.5rem;
@@ -125,13 +126,28 @@
 .para span{
     color: #1D9BF0;
 }
-.input2{
+
+.input2 {
     width: 27.375rem;
-    height: 3.75rem;
+    height: 3.5rem;
     background-color: black;
     color: white;
     border: 1px gray solid;
-}
+    border-radius: 0.3rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    position: relative;
+  }
+  
+  .passwordPreview {
+    position: absolute;
+    top: 24%;
+    right:39%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: gray;
+    font-size: 1.2rem;
+  }
 @media only screen and (max-width: 768px){
     .container{
         margin: 0;

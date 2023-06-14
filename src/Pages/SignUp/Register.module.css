@@ -167,7 +167,7 @@ font-size: 1rem;
     padding-left:1rem;
 }
 
-.input2{
+.input2 {
     width: 27.375rem;
     height: 3.5rem;
     background-color: black;
@@ -175,8 +175,20 @@ font-size: 1rem;
     border: 1px gray solid;
     border-radius: 0.3rem;
     margin-bottom: 1rem;
-   padding-left:1rem;
-}
+    padding-left: 1rem;
+    position: relative;
+  }
+  
+  .passwordPreview {
+    position: absolute;
+    top: 48%;
+    right:38%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: gray;
+    font-size: 1.2rem;
+  }
+  
 .input1::placeholder{
 padding-left: 0.5rem;
 }
